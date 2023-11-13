@@ -11,6 +11,7 @@
       overlays = [
         rust-overlay.overlays.default
         (final: prev: {
+        
           rustToolchain =
             let
               rust = prev.rust-bin;
@@ -41,8 +42,10 @@
             rust-analyzer
 
             cargo-leptos
+            cargo-generate
+            cargo-make
             sass
-            wasm-bindgen-cli
+            nodejs
           ];
         };
       });
