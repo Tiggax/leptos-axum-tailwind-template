@@ -1,4 +1,6 @@
+use crate::error_page::{AppError, ErrorTemplate};
 use cfg_if::cfg_if;
+use leptos::Errors;
 
 cfg_if! { if #[cfg(feature = "ssr")] {
     use axum::{
@@ -11,7 +13,6 @@ cfg_if! { if #[cfg(feature = "ssr")] {
     use tower::ServiceExt;
     use tower_http::services::ServeDir;
     use leptos::{LeptosOptions, view};
-    use crate::app::App;
 
     pub async fn file_and_error_handler(uri: Uri, State(options): State<LeptosOptions>, req: Request<Body>) -> AxumResponse {
         let root = options.site_root.clone();
@@ -20,9 +21,11 @@ cfg_if! { if #[cfg(feature = "ssr")] {
         if res.status() == StatusCode::OK {
             res.into_response()
         } else{
+            let mut errors = Errors::default();
+            errors.insert_with_default_key(AppError::NotFound);
             let handler = leptos_axum::render_app_to_stream(
                 options.to_owned(),
-                move || view!{ <App/> }
+                move || view!{ <ErrorTemplate outside_errors=errors.clone()/>}
             );
             handler(req).await.into_response()
         }
