@@ -1,3 +1,65 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg:	    244deg 0% 95%;
+    --color-bg2:	    0deg 0% 95%;
+    --color-content:  207deg 95% 34%;
+    --color-content2: 0deg 5% 13%;
+    --color-accent:   216deg 98% 52%;
+    --color-accent2:  208deg 7% 46%;
+
+    --color-success:  152deg 69% 31%;
+    --color-info:     190deg 90% 50%;
+    --color-warning:  45deg 100% 51%;
+    --color-danger:   354deg 70% 54%;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --color-bg:	    244deg 0% 95%;
+      --color-bg2:	    0deg 0% 95%;
+      --color-content:  207deg 95% 34%;
+      --color-content2: 0deg 5% 13%;
+      --color-accent:   216deg 98% 52%;
+      --color-accent2:  208deg 7% 46%;
+  
+      --color-success:  152deg 69% 31%;
+      --color-info:     190deg 90% 50%;
+      --color-warning:  45deg 100% 51%;
+      --color-danger:   354deg 70% 54%;  
+    }
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+    
+    --color-bg:      207deg 95% 34%;
+    --color-bg2:     0deg 0% 95%;
+    --color-content:  0deg 0% 95%;
+    --color-content2: 0deg 5% 13%;
+    --color-accent:   216deg 98% 52%;
+    --color-accent2:  208deg 7% 46%;
+
+    --color-success:  152deg 69% 31%;
+    --color-info:     190deg 90% 50%;
+    --color-warning:  45deg 100% 51%;
+    --color-danger:   354deg 70% 54%;
+    }
+  }
+  :root[data-theme="dark"] {
+    
+    --color-bg:      207deg 95% 34%;
+    --color-bg2:     0deg 0% 95%;
+    --color-content:  0deg 0% 95%;
+    --color-content2: 0deg 5% 13%;
+    --color-accent:   216deg 98% 52%;
+    --color-accent2:  208deg 7% 46%;
+
+    --color-success:  152deg 69% 31%;
+    --color-info:     190deg 90% 50%;
+    --color-warning:  45deg 100% 51%;
+    --color-danger:   354deg 70% 54%;
+  }
+}
