@@ -4,7 +4,13 @@ my  Leptos template with axum backend and tailwind integration with a nix flake
 
 # General instructions
 
-run `nix develop` to bring all the dependencies to scope, and then open three instances:
+you can easily create a new project by running:
+
+```
+cargo leptos new --git https://github.com/Tiggax/leptos-axum-tailwind-template
+```
+
+then run `nix develop` to bring all the dependencies to scope, and then open three instances:
 
 - your working instance (I use console with helix)
 
